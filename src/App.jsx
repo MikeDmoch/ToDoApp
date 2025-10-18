@@ -120,9 +120,9 @@ function App() {
                 type="checkbox"
                 onChange={() => handleTaskComplete(task)}
                 checked={task.completed}
-                className="flex items-center cursor-pointer"
+                className="cursor-pointer"
               />
-              {task.text}
+              <div className="flex-grow text-right mx-4">{task.text}</div>
               <button onClick={() => handleTaskDelete(task)}>❌</button>
             </li>
           ))}
