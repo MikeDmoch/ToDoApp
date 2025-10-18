@@ -45,23 +45,41 @@ function App() {
   return (
     <div className="flex flex-col items-center bg-gray-100 min-h-screen py-10">
       <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-lg">
-        <h1 className="font-bold text-indigo-600 text-3xl mb-4">TODO APP</h1>
+        <h1 className="font-bold text-blue-800 text-3xl mb-4">TODO APP</h1>
         <div className="flex gap-2">
           <button
             onClick={() => setView("in-progress")}
-            className="mb-2 px-3 py-1 text-white bg-blue-500 rounded hover:bg-indigo-600 transition"
+            aria-pressed={view === "in-progress"}
+            className={
+              "mb-2 px-3 py-1 rounded transition " +
+              (view === "in-progress"
+                ? "bg-blue-700 text-white"
+                : "bg-blue-500 text-white hover:bg-blue-700")
+            }
           >
             In Progress
           </button>
           <button
             onClick={() => setView("completed")}
-            className="mb-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-indigo-600 transition"
+            aria-pressed={view === "completed"}
+            className={
+              "mb-2 px-3 py-1 rounded transition " +
+              (view === "completed"
+                ? "bg-blue-700 text-white"
+                : "bg-blue-500 text-white hover:bg-blue-700")
+            }
           >
             Completed
           </button>
           <button
             onClick={() => setView("all")}
-            className="mb-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-indigo-600 transition"
+            aria-pressed={view === "all"}
+            className={
+              "mb-2 px-3 py-1 rounded transition " +
+              (view === "all"
+                ? "bg-blue-700 text-white"
+                : "bg-blue-500 text-white hover:bg-blue-700")
+            }
           >
             All
           </button>
@@ -83,7 +101,7 @@ function App() {
           />
           <button
             onClick={() => handleTaskAdd(newTask)}
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-800 transition"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition"
           >
             Add Task
           </button>
