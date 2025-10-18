@@ -19,6 +19,10 @@ function App() {
     setNewTask({ text: "", completed: false });
   };
 
+  const handleTaskDelete = (task) => {
+    setTasks(tasks.filter((t) => t != task));
+  };
+
   const handleTaskComplete = (task) => {
     const updatedTasks = tasks.map((t) =>
       t === task ? { ...t, completed: !t.completed } : t
@@ -106,7 +110,7 @@ function App() {
             Add Task
           </button>
         </div>
-        <ul className="w-full max-w-md space-y-2 divide-y">
+        <ul className="w-full max-w-md space-y-2 divide-y flex flex-col">
           {filteredTasks.map((task, index) => (
             <li
               key={index}
@@ -119,6 +123,7 @@ function App() {
                 className="flex items-center cursor-pointer"
               />
               {task.text}
+              <button onClick={() => handleTaskDelete(task)}>❌</button>
             </li>
           ))}
         </ul>
